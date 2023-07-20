@@ -6,7 +6,7 @@
     color: var(--text-color);
 }
 
-:root{
+:root {
     --text-color: white;
     --bg-url: url(assets/bg-mobile.jpg);
     --stroke-color: rgba(255, 255, 255, 0.5);
@@ -16,7 +16,8 @@
     --switch-bg-url: url(assets/MoonStars.svg);
 
 }
-.light{
+
+.light {
     --text-color: black;
     --bg-url: url(assets/bg-mobile-light.jpg);
     --stroke-color: rgba(0, 0, 0, 0.5);
@@ -28,14 +29,15 @@
 
 body {
     background: var(--bg-url) no-repeat top center/cover;
+    height: 100vh;
 }
 
 
 .container {
     width: 100%;
-    max-width: 580px ;
-    margin: auto;
-    padding-top: 56px auto 0px;
+    max-width: 588px;
+    margin: 56px auto 0px;
+    padding: 0 24px;
 }
 
 #profile {
@@ -52,12 +54,14 @@ body {
     font-weight: 500;
     line-height: 24px;
 }
-#switch{
+
+#switch {
     position: relative;
     width: 64px;
     margin: 4px auto;
 }
-#switch button{
+
+#switch button {
     width: 32px;
     height: 32px;
     background: white var(--switch-bg-url) no-repeat center;
@@ -68,20 +72,27 @@ body {
     z-index: 1;
     left: 0;
     transform: translateY(-50%);
+    animation: slide-back 0.2s;
 }
 
-.light #switch button{
+.light #switch button {
     right: 0;
     left: initial;
+    animation: slide-in 0.2s forwards;
 }
 
-#switch span{
+#switch button:hover {
+    outline: 8px solid var(--highlight-color);
+}
+
+#switch span {
     display: block;
     width: 64px;
     height: 24px;
     background: var(--surface-color);
     border: 1px solid var(--stroke-color);
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     border-radius: 9999px;
 }
 
@@ -102,9 +113,10 @@ ul li a {
     border: 1px solid var(--stroke-color);
     border-radius: 8px;
     backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     text-decoration: none;
     font-weight: 500;
-    transition: background 0.3s;
+    transition: background 0.2s;
 }
 
 ul li a:hover {
@@ -131,8 +143,38 @@ ul li a:hover {
     border-radius: 50%;
 }
 
-footer{
+footer {
     padding: 24px 0px;
     text-align: center;
     font-size: 14px;
+}
+
+@media (max-width: 700px) {
+    :root {
+        --bg-url: url(assets/bg-desktop.jpg);
+    }
+
+    .light {
+        --bg-url: url(assets/bg-desktop-light.jpg);
+    }
+}
+
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+
+    to {
+        left: 0;
+    }
 }
