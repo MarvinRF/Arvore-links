@@ -12,6 +12,8 @@
     --surface-color-hover: rgba(0, 0, 0, 0.02);
     --highlight-color: rgba(255, 255, 255, 0.2);
     --switch-bg-url: url(assets/MoonStars.svg);
+    --border-img: linear-gradient(#d39333, #ed5636, #633bbc);
+    --linear-gradient: linear-gradient(260deg, #d39333, #ed5636, #633bbc) border-box;
 }
 
 .light {
@@ -22,6 +24,8 @@
     --surface-color-hover: rgba(0, 0, 0, 0.02);
     --highlight-color: rgba(0, 0, 0, 0.1);
     --switch-bg-url: url(assets/Sun.svg);
+    --border-img: linear-gradient(#d39333, #ed5636, #633bbc);
+    --linear-gradient: linear-gradient(260deg, #ffffff, #a27ca1, #e7adea) border-box;
 }
 
 body {
@@ -49,7 +53,12 @@ body * {
 
 #profile img {
     width: 112px;
+    border-radius: 50%;
+    border: 4px solid transparent;
+    background: var(--border-img) padding-box,
+    var(--linear-gradient);
 }
+
 
 #profile p {
     font-weight: 500;
